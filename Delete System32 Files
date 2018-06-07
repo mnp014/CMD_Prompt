@@ -1,0 +1,44 @@
+#1 Cd to System32
+> cd "C:\Windows\System32"
+---------------------------------------------------------------------------------
+#2 Take Ownership of the file:
+> takeown /f <filename>
+---------------------------------------------------------------------------------
+#3 grant permission to the current owner
+> icacls "C:\Windows\System32\<filename>" /grant %usernanme%:F
+
+According do MS documentation:
+  F = Full Control
+  CI = Container Inherit - This flag indicates that subordinate containers will inherit this ACE.
+  OI = Object Inherit - This flag indicates that subordinate files will inherit the ACE.
+  /T = Apply recursively to existing files and sub-folders. (OI and CI only apply to new files and sub-folders).
+For more cmds, refer:
+    https://support.microsoft.com/en-in/help/825751/how-to-use-xcacls-vbs-to-modify-ntfs-permissions
+    https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753525(v=ws.10)
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Also Look At:
+
+##1 To change your current users password to something completely random
+> net user “%username%” “%random%%random%%random%%random%%random%”
+
+##2 To view the current user
+c:\>whoami
+
+##3 To change your password to 12345
+run cmd in admin mode and type net user (user name) (12345)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+---------------------------------------------------------------------------------
+#4 Delete the file
+ > DEL <filename>
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+NOTE::
+Permission Denied:
+A problem that prevents you from accessing or working with files and folders can occur for one or more of the following reasons:
+
+Causes:
+The folder ownership has changed
+You do not have the appropriate permissions
+The file is encrypted
+The file is corrupted
+The user profile is corrupted
