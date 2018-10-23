@@ -5,7 +5,7 @@
 > takeown /f <filename>
 ---------------------------------------------------------------------------------
 #3 grant permission to the current owner:
-> icacls "C:\Windows\System32\<filename>" /grant %usernanme%:F
+> icacls "C:\Windows\System32\<filename>" /grant %username%:F
 
 According do MS documentation:
   F = Full Control
